@@ -1,0 +1,22 @@
+# Автоматическая нормализация
+* text=auto
+
+# Текстовые файлы — LF везде
+*.md text eol=lf
+*.tex text eol=lf
+*.c text eol=lf
+*.cpp text eol=lf
+*.h text eol=lf
+*.ino text eol=lf
+*.json text eol=lf
+*.gitignore text eol=lf
+
+# Бинарные файлы — не трогать
+*.sldprt binary
+*.sldasm binary
+*.slddrw binary
+*.bin binary
+*.xlsx binary
+*.pdf binary
+*.png binary
+*.jpg binary
