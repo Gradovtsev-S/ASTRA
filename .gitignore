@@ -1,0 +1,152 @@
+# =============================================
+# SOLIDWORKS
+# =============================================
+
+# Резервные копии (создаются автоматически)
+*.sldprt.bak
+*.sldasm.bak
+*.slddrw.bak
+*.~sldprt
+*.~sldasm
+*.~slddrw
+
+# Временные файлы SolidWorks
+*.swp
+*.lck
+
+# Папки SolidWorks
+/eDrawings/
+
+# =============================================
+# ARDUINO / ESP32
+# =============================================
+
+# Скомпилированные файлы
+build/
+*.elf
+*.bin
+*.hex
+*.map
+*.d
+*.o
+*.a
+
+# Arduino IDE временные файлы
+/tmp/
+*.bak
+
+# ESP-IDF специфика
+sdkconfig.old
+dependencies.lock
+managed_components/
+
+# =============================================
+# C / C++
+# =============================================
+
+# Объектные файлы
+*.o
+*.obj
+*.lo
+*.slo
+
+# Библиотеки
+*.lib
+*.a
+*.la
+*.lai
+*.so
+*.dll
+*.dylib
+
+# Отладочные файлы
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# =============================================
+# IDE И РЕДАКТОРЫ
+# =============================================
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# CLion / JetBrains
+.idea/
+cmake-build-*/
+
+# Visual Studio
+*.VC.db
+*.VC.opendb
+*.vcxproj.user
+
+# Eclipse
+.project
+.cproject
+.settings/
+
+# =============================================
+# ОПЕРАЦИОННАЯ СИСТЕМА
+# =============================================
+
+# Windows
+Thumbs.db
+Thumbs.db:encdata
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+*~
+.fuse_hidden*
+.Trash-*
+.nfs*
+
+# =============================================
+# ДОКУМЕНТАЦИЯ И ЭКСПОРТ
+# =============================================
+
+# Экспортированные PDF из SolidWorks (генерируются из исходников)
+# Раскомментируй если не хочешь хранить PDF в репо
+# *.pdf
+
+# Рендеры и превью (тяжёлые файлы)
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+# Исключение — храним картинки в папке docs/
+!docs/**/*.png
+!docs/**/*.jpg
+
+# =============================================
+# РАЗНОЕ
+# =============================================
+
+# Логи
+*.log
+logs/
+
+# Переменные окружения (токены, ключи)
+.env
+.env.local
+secrets.h
+credentials.h
+
+# Telegram bot token — никогда не коммитить!
+*token*
+*secret*
+*password*
+*credential*
