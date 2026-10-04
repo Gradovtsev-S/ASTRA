@@ -1,0 +1,1 @@
+#include "star_catalog.h"
