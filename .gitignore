@@ -176,3 +176,6 @@ credentials.h
 *secret*
 *password*
 *credential*
+
+# Шаблон секретов хранится в репозитории
+!secrets.example.h

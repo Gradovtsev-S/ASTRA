@@ -132,3 +132,12 @@ ASTRA/
 - **Прошивка:** C/C++, ESP-IDF, FreeRTOS, Astronomy Engine, FastAccelStepper
 - **Интерфейс:** Telegram Bot API
 - **Документация:** Markdown, LaTeX
+
+---
+
+## Сборка и запуск
+
+1. Заполнить значения в `firmware/src/config.h` (пины, механика, склонение).
+2. Скопировать firmware/src/secrets.example.h в firmware/src/secrets.h
+   и вписать данные Wi-Fi и токен бота.
+3. Собрать и прошить ESP32.
