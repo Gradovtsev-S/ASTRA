@@ -127,33 +127,39 @@ static double clamp1(double v){
 
 
 // Основные вычисления
-TargetAngles handler_calculate(const char* target_name,
-                               const Observer& obs,
-                               const UtcTime& time,
-                               const Orientation& orient)
-{
+TargetAngles handler_calculate(const char* target_name, const Observer& obs, const UtcTime& time, const Orientation& orient){
     TargetAngles out = { 0.0, 0.0, TargetStatus::UnknownObject };
     if (target_name == nullptr)
         return out;
     astro_body_t body;
     if (!resolve_body(target_name, &body))
         return out;
+
+
     astro_time_t t = Astronomy_MakeTime(time.year, time.month, time.day, time.hour, time.min, time.sec);
     astro_observer_t loc = Astronomy_MakeObserver(obs.lat, obs.lon, obs.elev);
+
+
     // Топоцентрические экваториальные координаты на дату (с аберрацией).
     astro_equatorial_t eq = Astronomy_Equator(body, &t, loc, EQUATOR_OF_DATE, ABERRATION);
     if (eq.status != ASTRO_SUCCESS)
         return out;
+
+
     // Азимут (от севера по часовой) и высота над горизонтом.
     astro_horizon_t hor = Astronomy_Horizon(&t, loc, eq.ra, eq.dec, kRefraction);
     // Единичный вектор на цель в NED.
     const double az_h  = hor.azimuth  * kDeg2Rad;
     const double alt_h = hor.altitude * kDeg2Rad;
     Vec3 v = { cos(alt_h) * cos(az_h), cos(alt_h) * sin(az_h), -sin(alt_h) };
+
+
     // NED -> система основания.
     v = rot_z(v,  (double)orient.heading * kDeg2Rad);
     v = rot_y(v,  kPitchSign * (double)orient.pitch * kDeg2Rad);
     v = rot_x(v,  kRollSign  * (double)orient.roll  * kDeg2Rad);
+
+    
     // Вектор -> углы монтировки.
     out.az  = wrap360(atan2(v.y, v.x) * kRad2Deg);  
     out.alt = acos(clamp1(v.z)) * kRad2Deg;
