@@ -7,13 +7,13 @@
 // ============================================================
 
 // ---------- Моторы (TMC2209 x2) ----------
-#define MOTOR_AZ_STEP_PIN        -1
-#define MOTOR_AZ_DIR_PIN         -1
-#define MOTOR_AZ_EN_PIN          -1
+#define MOTOR_AZ_STEP_PIN        25
+#define MOTOR_AZ_DIR_PIN         26
+#define MOTOR_AZ_EN_PIN          27
 
-#define MOTOR_ALT_STEP_PIN       -1
-#define MOTOR_ALT_DIR_PIN        -1
-#define MOTOR_ALT_EN_PIN         -1
+#define MOTOR_ALT_STEP_PIN       32
+#define MOTOR_ALT_DIR_PIN        33
+#define MOTOR_ALT_EN_PIN         13
 
 // Направление вращения: 1 или -1 (инверсия, если ось крутится не туда)
 #define MOTOR_AZ_DIR_SIGN        0
