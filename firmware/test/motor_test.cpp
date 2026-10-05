@@ -7,9 +7,9 @@
 #include "../src/config.h"
 
 // Параметры теста (свои, не зависят от значений в config.h)
-static const int TEST_STEPS    = 1600;  // шагов за один проход
-static const int STEP_DELAY_US = 800;   // полупериод импульса, мкс (больше = медленнее)
-static const int PAUSE_MS      = 1000;  // пауза между движениями
+static const int TEST_STEPS    = 200;   // один оборот при полном шаге (MS1-3 не подключены)
+static const int STEP_DELAY_US = 2000;  // ~250 шагов/с, около 1,25 об/с
+static const int PAUSE_MS      = 1000;
 
 static bool pins_ok() {
     const int pins[] = {
@@ -58,7 +58,7 @@ void setup() {
     };
     for (int p : out_pins) pinMode(p, OUTPUT);
 
-    // EN у TMC2209 активен низким уровнем: LOW = драйвер включён
+    // EN у A4988 активен низким уровнем: LOW = драйвер включён
     digitalWrite(MOTOR_AZ_EN_PIN,  LOW);
     digitalWrite(MOTOR_ALT_EN_PIN, LOW);
 
