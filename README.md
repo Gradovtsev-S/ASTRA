@@ -55,6 +55,7 @@
 ```
 ASTRA/
 ├── README.md
+├── CONTRIBUTING.md
 ├── .gitignore
 ├── .gitattributes
 │
@@ -74,11 +75,13 @@ ASTRA/
 │   └── latex/                        # Проектное предложение в LaTeX (+ собранный PDF)
 │
 ├── firmware/                         # Прошивка ESP32 (C/C++)
+│   ├── platformio.ini                # Конфигурация PlatformIO
 │   ├── data/
 │   ├── src/
-│   │   ├── config.h                  # Пины, механика, параметры датчиков и логики
+│   │   ├── config.h
+│   │   ├── secrets.example.h         # Шаблон: копия секретов без значений
 │   │   ├── secrets.h                 # Wi-Fi и токен Telegram (не коммитится)
-│   │   ├── main.cpp                  # Инициализация и главный цикл
+│   │   ├── main.cpp                  # setup(): инициализация, loop(): главный цикл
 │   │   │
 │   │   ├── sensors/                  # Датчики
 │   │   │   ├── gps.*                 # GPS Neoway G7A (UART) + RTC DS3231 (I2C)
@@ -116,7 +119,7 @@ ASTRA/
 
 ---
 
-### Безопасность лазера
+## Безопасность лазера
 
 - после `laser_init` лазер выключен;
 - включается только при `status == Ok`, достигнутой цели и достоверных данных датчиков;
@@ -129,7 +132,7 @@ ASTRA/
 
 - **Железо:** ESP32, TMC2209, NEMA17, GPS Neoway G7A, BMI160, GY-511, DS3231
 - **CAD:** SolidWorks
-- **Прошивка:** C/C++, ESP-IDF, FreeRTOS, Astronomy Engine, FastAccelStepper
+- **Прошивка:** C/C++, PlatformIO (Arduino framework для ESP32), Astronomy Engine
 - **Интерфейс:** Telegram Bot API
 - **Документация:** Markdown, LaTeX
 
@@ -137,7 +140,8 @@ ASTRA/
 
 ## Сборка и запуск
 
-1. Заполнить значения в `firmware/src/config.h` (пины, механика, склонение).
-2. Скопировать firmware/src/secrets.example.h в firmware/src/secrets.h
+1. Установить VS Code и расширение PlatformIO IDE, открыть папку `firmware`.
+2. Скопировать `firmware/src/secrets.example.h` в `firmware/src/secrets.h`
    и вписать данные Wi-Fi и токен бота.
-3. Собрать и прошить ESP32.
+3. Заполнить значения в `firmware/src/config.h` (пины, механика, склонение).
+4. Собрать (`pio run` или кнопка Build) и прошить ESP32.
