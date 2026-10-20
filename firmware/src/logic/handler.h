@@ -11,9 +11,9 @@ struct Observer {
 // Время UTC
 struct UtcTime {
     uint16_t year;
-    uint8_t  month, day;
-    uint8_t  hour, min;
-    double   sec;
+    uint8_t month, day;
+    uint8_t hour, min;
+    double sec;
 };
 
 // Ориентация основания
