@@ -18,8 +18,8 @@ struct UtcTime {
 
 // Ориентация основания
 struct Orientation {
-    float roll;     // крен, градусы
-    float pitch;    // тангаж, градусы
+    float roll;     // крен вправо, градусы
+    float pitch;    // тангаж вверх, градусы
     float heading;  // истинный азимут направления az = 0 монтировки,
                     // от севера по часовой, 0..360
 };
@@ -27,6 +27,8 @@ struct Orientation {
 enum class TargetStatus : uint8_t {
     Ok,
     UnknownObject,
+    InvalidInput,
+    AstronomyError,
 };
 
 // Углы в системе монтировки, готовые для motors_set_target
@@ -40,3 +42,5 @@ TargetAngles handler_calculate(const char* target_name,
                                const Observer& obs,
                                const UtcTime& time,
                                const Orientation& orient);
+
+bool utc_valid(const UtcTime& time);

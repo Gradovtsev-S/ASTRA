@@ -10,5 +10,6 @@ struct HandlerInputs {
 };
 
 // Берёт данные датчиков (gps, gyro_accel, mag_compass) и переводит их в типы handler.
+// Вызывать из одного цикла опроса после инициализации драйверов.
 // false, если какие-то данные недостоверны: считать наведение нельзя.
 bool adapter_read(HandlerInputs* out);
