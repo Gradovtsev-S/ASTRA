@@ -4,8 +4,8 @@
 
 // Входные данные handler в одном пакете
 struct HandlerInputs {
-    Observer    obs;
-    UtcTime     time;
+    Observer obs;
+    UtcTime time;
     Orientation orient;
 };
 
