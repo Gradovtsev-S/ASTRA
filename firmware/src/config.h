@@ -20,7 +20,7 @@
 #define MOTOR_ALT_DIR_SIGN       0
 
 // Механика: шагов на оборот мотора, микрошаг, редукция до оси
-#define MOTOR_STEPS_PER_REV      0
+#define MOTOR_STEPS_PER_REV      0                                                                                      ф
 #define MOTOR_MICROSTEPS         0
 #define MOTOR_AZ_GEAR_RATIO      0
 #define MOTOR_ALT_GEAR_RATIO     0
